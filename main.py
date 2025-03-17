@@ -4,18 +4,18 @@ app = Flask(__name__)
 
 # List of links (easily extendable)
 band_links = [
-    {"name": "Instagram", "url": "https://instagram.com/yourband"},
-    {"name": "Spotify", "url": "https://spotify.com/yourband"},
-    {"name": "YouTube", "url": "https://youtube.com/yourband"}
+    {"name": "Instagram", "url": "https://www.instagram.com/smokinbreadsticks/"},
+    {"name": "Spotify", "url": "https://open.spotify.com/intl-de/artist/6fjb2fConTsDEi1db27tjt?si=qLEuJaL0TGCUe-snkiP1LA"},
+    {"name": "YouTube", "url": "https://www.youtube.com/@SmokinBreadsticks"}
 ]
 
 @app.route('/')
 def home():
-    return render_template('index.html', links=band_links)
+    return render_template('templates/index.html', links=band_links)
 
-@app.route('/portfolio')
+@app.route('/')
 def portfolio():
-    return render_template('portfolio.html')
+    return render_template('templates/portfolio.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
