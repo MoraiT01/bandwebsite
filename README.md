@@ -1,7 +1,7 @@
 # Smokin' Breadsticks Website
 
-A new goal for the band is to have a website until 2026. Let's do this!!!
+A new goal for the band is to have a website by 2026. Let's do this!!!
+Thanks to Anderson, we could get a great first version for the website!
 
-Requests for the website:
-- Linktree ähnliche Sammlung all unserer Links
-- Portfolio site: Wenn wir uns bewerben, sollte eine Unseite Basically als Portfolio taugen
+Current requests for the website:
+- []
