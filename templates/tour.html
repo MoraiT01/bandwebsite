@@ -1,0 +1,672 @@
+{% extends 'base.html' %}
+
+{% block title %}Smokin' Breadsticks - Tour{% endblock %}
+
+{% block content %}
+<div class="page-header" style="background-image: url('{{ url_for('static', filename='images/tour-header.jpg') }}');">
+    <div class="container">
+        <h1>TOUR</h1>
+    </div>
+</div>
+
+<section class="upcoming-tour">
+    <div class="container">
+        <h2 class="section-title">UPCOMING SHOWS</h2>
+        <div class="tour-list">
+            <div class="tour-item">
+                <div class="tour-date">
+                    <span class="day">15</span>
+                    <span class="month">MAY</span>
+                    <span class="year">2025</span>
+                </div>
+                <div class="tour-info">
+                    <h3>Munich, Germany</h3>
+                    <p class="venue">Backstage Club</p>
+                    <p class="address">Reitknechtstr. 6, 80639 Munich</p>
+                </div>
+                <div class="tour-actions">
+                    <a href="#" class="btn">TICKETS</a>
+                    <a href="#" class="btn-outline">VIP PACKAGES</a>
+                </div>
+            </div>
+            
+            <div class="tour-item">
+                <div class="tour-date">
+                    <span class="day">22</span>
+                    <span class="month">MAY</span>
+                    <span class="year">2025</span>
+                </div>
+                <div class="tour-info">
+                    <h3>Berlin, Germany</h3>
+                    <p class="venue">SO36</p>
+                    <p class="address">Oranienstraße 190, 10999 Berlin</p>
+                </div>
+                <div class="tour-actions">
+                    <a href="#" class="btn">TICKETS</a>
+                    <a href="#" class="btn-outline">VIP PACKAGES</a>
+                </div>
+            </div>
+            
+            <div class="tour-item">
+                <div class="tour-date">
+                    <span class="day">29</span>
+                    <span class="month">MAY</span>
+                    <span class="year">2025</span>
+                </div>
+                <div class="tour-info">
+                    <h3>Hamburg, Germany</h3>
+                    <p class="venue">Molotow</p>
+                    <p class="address">Nobistor 14, 22767 Hamburg</p>
+                </div>
+                <div class="tour-actions">
+                    <a href="#" class="btn">TICKETS</a>
+                    <a href="#" class="btn-outline">VIP PACKAGES</a>
+                </div>
+            </div>
+            
+            <div class="tour-item">
+                <div class="tour-date">
+                    <span class="day">05</span>
+                    <span class="month">JUN</span>
+                    <span class="year">2025</span>
+                </div>
+                <div class="tour-info">
+                    <h3>Vienna, Austria</h3>
+                    <p class="venue">Arena Wien</p>
+                    <p class="address">Baumgasse 80, 1030 Vienna</p>
+                </div>
+                <div class="tour-actions">
+                    <a href="#" class="btn">TICKETS</a>
+                    <a href="#" class="btn-outline">VIP PACKAGES</a>
+                </div>
+            </div>
+            
+            <div class="tour-item">
+                <div class="tour-date">
+                    <span class="day">12</span>
+                    <span class="month">JUN</span>
+                    <span class="year">2025</span>
+                </div>
+                <div class="tour-info">
+                    <h3>Zurich, Switzerland</h3>
+                    <p class="venue">Dynamo</p>
+                    <p class="address">Wasserwerkstrasse 21, 8006 Zurich</p>
+                </div>
+                <div class="tour-actions">
+                    <a href="#" class="btn">TICKETS</a>
+                    <a href="#" class="btn-outline">VIP PACKAGES</a>
+                </div>
+            </div>
+            
+            <div class="tour-item">
+                <div class="tour-date">
+                    <span class="day">19</span>
+                    <span class="month">JUN</span>
+                    <span class="year">2025</span>
+                </div>
+                <div class="tour-info">
+                    <h3>Prague, Czech Republic</h3>
+                    <p class="venue">Lucerna Music Bar</p>
+                    <p class="address">Vodičkova 36, 110 00 Prague</p>
+                </div>
+                <div class="tour-actions">
+                    <a href="#" class="btn">TICKETS</a>
+                    <a href="#" class="btn-outline">VIP PACKAGES</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="tour-map">
+    <div class="container">
+        <h2 class="section-title">TOUR MAP</h2>
+        <div class="map-container">
+            <div class="map-placeholder">
+                <img src="{{ url_for('static', filename='images/tour-map.jpg') }}" alt="Tour Map">
+                <div class="map-overlay">
+                    <p>Interactive map would be displayed here</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="past-tours">
+    <div class="container">
+        <h2 class="section-title">PAST TOURS</h2>
+        <div class="past-tours-accordion">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Winter Tour 2024</h3>
+                    <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <div class="past-tour-grid">
+                        <div class="past-tour-item">
+                            <div class="past-tour-date">15 FEB 2024</div>
+                            <div class="past-tour-location">Regensburg, Germany</div>
+                            <div class="past-tour-venue">Don Bosco</div>
+                        </div>
+                        <div class="past-tour-item">
+                            <div class="past-tour-date">22 FEB 2024</div>
+                            <div class="past-tour-location">Nuremberg, Germany</div>
+                            <div class="past-tour-venue">Z-Bau</div>
+                        </div>
+                        <div class="past-tour-item">
+                            <div class="past-tour-date">01 MAR 2024</div>
+                            <div class="past-tour-location">Stuttgart, Germany</div>
+                            <div class="past-tour-venue">Im Wizemann</div>
+                        </div>
+                        <div class="past-tour-item">
+                            <div class="past-tour-date">08 MAR 2024</div>
+                            <div class="past-tour-location">Frankfurt, Germany</div>
+                            <div class="past-tour-venue">Zoom</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Fall Tour 2023</h3>
+                    <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <div class="past-tour-grid">
+                        <div class="past-tour-item">
+                            <div class="past-tour-date">10 OCT 2023</div>
+                            <div class="past-tour-location">Munich, Germany</div>
+                            <div class="past-tour-venue">Feierwerk</div>
+                        </div>
+                        <div class="past-tour-item">
+                            <div class="past-tour-date">17 OCT 2023</div>
+                            <div class="past-tour-location">Augsburg, Germany</div>
+                            <div class="past-tour-venue">Kantine</div>
+                        </div>
+                        <div class="past-tour-item">
+                            <div class="past-tour-date">24 OCT 2023</div>
+                            <div class="past-tour-location">Regensburg, Germany</div>
+                            <div class="past-tour-venue">Alte Mälzerei</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>Summer Tour 2023</h3>
+                    <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <div class="past-tour-grid">
+                        <div class="past-tour-item">
+                            <div class="past-tour-date">15 JUN 2023</div>
+                            <div class="past-tour-location">Regensburg, Germany</div>
+                            <div class="past-tour-venue">Jahnstadion</div>
+                        </div>
+                        <div class="past-tour-item">
+                            <div class="past-tour-date">22 JUN 2023</div>
+                            <div class="past-tour-location">Munich, Germany</div>
+                            <div class="past-tour-venue">Backstage</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="vip-packages">
+    <div class="container">
+        <h2 class="section-title">VIP PACKAGES</h2>
+        <div class="vip-grid">
+            <div class="vip-item">
+                <div class="vip-header">
+                    <h3>STANDARD VIP</h3>
+                    <p class="vip-price">$75</p>
+                </div>
+                <div class="vip-content">
+                    <ul>
+                        <li>Early venue entry</li>
+                        <li>Exclusive VIP merchandise item</li>
+                        <li>Commemorative VIP laminate</li>
+                        <li>Crowd-free merchandise shopping</li>
+                    </ul>
+                    <a href="#" class="btn">PURCHASE</a>
+                </div>
+            </div>
+            
+            <div class="vip-item featured">
+                <div class="vip-header">
+                    <h3>PREMIUM VIP</h3>
+                    <p class="vip-price">$150</p>
+                </div>
+                <div class="vip-content">
+                    <ul>
+                        <li>All Standard VIP benefits</li>
+                        <li>Meet & Greet with the band</li>
+                        <li>Personal photo with the band</li>
+                        <li>Autographed tour poster</li>
+                        <li>Front row viewing area access</li>
+                    </ul>
+                    <a href="#" class="btn">PURCHASE</a>
+                </div>
+            </div>
+            
+            <div class="vip-item">
+                <div class="vip-header">
+                    <h3>ULTIMATE VIP</h3>
+                    <p class="vip-price">$250</p>
+                </div>
+                <div class="vip-content">
+                    <ul>
+                        <li>All Premium VIP benefits</li>
+                        <li>Side-stage viewing for 3 songs</li>
+                        <li>Pre-show soundcheck access</li>
+                        <li>Exclusive backstage tour</li>
+                        <li>Signed instrument (varies by show)</li>
+                        <li>VIP-only acoustic performance</li>
+                    </ul>
+                    <a href="#" class="btn">PURCHASE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Tour page specific styles */
+    .page-header {
+        height: 50vh;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-top: 80px;
+    }
+    
+    .page-header:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8));
+    }
+    
+    .page-header h1 {
+        color: var(--primary-red);
+        font-size: 4rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        position: relative;
+        z-index: 1;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    
+    /* Upcoming Tour section */
+    .upcoming-tour {
+        padding: 4rem 0;
+        background-color: var(--dark-bg);
+    }
+    
+    .tour-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .tour-item {
+        display: flex;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 2rem;
+        border-radius: 4px;
+        transition: transform 0.3s ease;
+    }
+    
+    .tour-item:hover {
+        transform: translateX(5px);
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .tour-date {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-width: 100px;
+        background-color: var(--primary-red);
+        padding: 1rem;
+        border-radius: 4px;
+        margin-right: 2rem;
+    }
+    
+    .tour-date .day {
+        font-size: 2rem;
+        font-weight: bold;
+        line-height: 1;
+    }
+    
+    .tour-date .month {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    
+    .tour-date .year {
+        font-size: 1rem;
+    }
+    
+    .tour-info {
+        flex: 1;
+    }
+    
+    .tour-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .venue {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .address {
+        color: var(--gray-text);
+    }
+    
+    .tour-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .btn-outline {
+        display: inline-block;
+        background-color: transparent;
+        color: var(--primary-teal);
+        border: 2px solid var(--primary-teal);
+        padding: 0.8rem 1.5rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+    
+    .btn-outline:hover {
+        background-color: var(--primary-teal);
+        color: var(--dark-bg);
+    }
+    
+    /* Tour Map section */
+    .tour-map {
+        padding: 4rem 0;
+        background-color: var(--darker-bg);
+    }
+    
+    .map-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .map-placeholder {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        height: 400px;
+    }
+    
+    .map-placeholder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .map-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--light-text);
+        font-size: 1.2rem;
+    }
+    
+    /* Past Tours section */
+    .past-tours {
+        padding: 4rem 0;
+        background-color: var(--dark-bg);
+    }
+    
+    .past-tours-accordion {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .accordion-item {
+        margin-bottom: 1rem;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    
+    .accordion-header {
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .accordion-header:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .accordion-header h3 {
+        font-size: 1.3rem;
+        margin: 0;
+    }
+    
+    .accordion-icon {
+        font-size: 1.2rem;
+        color: var(--primary-red);
+    }
+    
+    .accordion-content {
+        background-color: rgba(255, 255, 255, 0.02);
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    
+    .accordion-item.active .accordion-content {
+        padding: 1.5rem;
+        max-height: 1000px;
+    }
+    
+    .accordion-item.active .accordion-icon i {
+        transform: rotate(45deg);
+    }
+    
+    .past-tour-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .past-tour-item {
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 1.5rem;
+        border-radius: 4px;
+    }
+    
+    .past-tour-date {
+        color: var(--primary-teal);
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+    
+    .past-tour-location {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .past-tour-venue {
+        color: var(--gray-text);
+    }
+    
+    /* VIP Packages section */
+    .vip-packages {
+        padding: 4rem 0;
+        background-color: var(--darker-bg);
+    }
+    
+    .vip-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .vip-item {
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 4px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    
+    .vip-item:hover {
+        transform: translateY(-5px);
+    }
+    
+    .vip-item.featured {
+        border: 2px solid var(--primary-red);
+        position: relative;
+    }
+    
+    .vip-item.featured:before {
+        content: 'MOST POPULAR';
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: var(--primary-red);
+        color: var(--light-text);
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+    
+    .vip-header {
+        background-color: rgba(0, 0, 0, 0.3);
+        padding: 1.5rem;
+        text-align: center;
+    }
+    
+    .vip-header h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: var(--primary-red);
+    }
+    
+    .vip-price {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--primary-teal);
+    }
+    
+    .vip-content {
+        padding: 1.5rem;
+    }
+    
+    .vip-content ul {
+        list-style: none;
+        margin-bottom: 1.5rem;
+    }
+    
+    .vip-content li {
+        padding: 0.5rem 0;
+        position: relative;
+        padding-left: 1.5rem;
+    }
+    
+    .vip-content li:before {
+        content: '✓';
+        position: absolute;
+        left: 0;
+        color: var(--primary-teal);
+    }
+    
+    .vip-content .btn {
+        display: block;
+        text-align: center;
+    }
+    
+    @media (max-width: 768px) {
+        .page-header h1 {
+            font-size: 3rem;
+        }
+        
+        .tour-item {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .tour-date {
+            margin-right: 0;
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+        
+        .tour-info {
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+        
+        .tour-actions {
+            width: 100%;
+        }
+        
+        .map-placeholder {
+            height: 300px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Accordion functionality
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            
+            header.addEventListener('click', function() {
+                // Close all other accordion items
+                accordionItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+    });
+</script>
+{% endblock %}
