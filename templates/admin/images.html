@@ -1,0 +1,130 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}Image Management | Smokin' Breadsticks Admin{% endblock %}
+
+{% block header_title %}Image Management{% endblock %}
+
+{% block content %}
+<div class="image-upload-container">
+    <h2>Upload New Image</h2>
+    <form action="{{ url_for('admin_upload_image') }}" method="post" enctype="multipart/form-data">
+        <div class="image-upload-area">
+            <div class="image-upload-icon">
+                <i class="fas fa-cloud-upload-alt"></i>
+            </div>
+            <div class="image-upload-text">Drag and drop an image here or click to browse</div>
+            <div class="image-upload-subtext">Supported formats: PNG, JPG, JPEG, GIF, WebP (Max size: 16MB)</div>
+            <input type="file" name="image" id="image-upload" class="image-upload-input" accept=".png,.jpg,.jpeg,.gif,.webp">
+        </div>
+        <div id="image-preview" style="display: none; margin-bottom: 1.5rem;"></div>
+        <div class="form-group">
+            <label for="target-location">Target Location</label>
+            <select name="target_location" id="target-location" class="form-control">
+                <option value="home_slider">Home Page Slider</option>
+                <option value="album_cover">Album Cover</option>
+                <option value="band_photo">Band Photo</option>
+                <option value="gallery">Gallery</option>
+                <option value="tour_background">Tour Background</option>
+                <option value="merch_product">Merchandise Product</option>
+                <option value="logo">Band Logo</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <button type="submit" class="admin-btn">Upload Image</button>
+    </form>
+</div>
+
+<div class="admin-table-container">
+    <h2>Manage Images</h2>
+    <p>Select an image to replace or delete. Replacing an image will maintain the same filename and update all instances where it's used.</p>
+    
+    {% if images %}
+    <div class="image-grid">
+        {% for image in images %}
+        <div class="image-item">
+            <div class="image-preview">
+                <img src="{{ image.url }}" alt="{{ image.filename }}">
+            </div>
+            <div class="image-info">
+                <h3 class="image-title">{{ image.filename }}</h3>
+                <p class="image-path">{{ image.path }}</p>
+                <p class="image-size">{{ image.size }} KB</p>
+                <div class="image-actions">
+                    <button class="admin-btn-secondary replace-image-toggle" data-image="{{ image.filename }}">Replace</button>
+                    <form action="{{ url_for('admin_delete_image', image_path=image.filename) }}" method="post" style="display: inline;">
+                        <button type="submit" class="admin-btn-secondary delete-image-btn">Delete</button>
+                    </form>
+                </div>
+            </div>
+            <div class="replace-image-form" id="replace-form-{{ image.filename }}" style="display: none; padding: 1rem;">
+                <form action="{{ url_for('admin_replace_image', image_path=image.filename) }}" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Select new image to replace {{ image.filename }}</label>
+                        <input type="file" name="image" accept=".png,.jpg,.jpeg,.gif,.webp" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="admin-btn replace-image-btn">Replace</button>
+                        <button type="button" class="admin-btn-secondary cancel-replace" data-image="{{ image.filename }}">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="no-images">
+        <p>No images found. Upload your first image using the form above.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Toggle replace image form
+        const replaceToggles = document.querySelectorAll('.replace-image-toggle');
+        const cancelButtons = document.querySelectorAll('.cancel-replace');
+        
+        replaceToggles.forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const imageFilename = this.getAttribute('data-image');
+                const replaceForm = document.getElementById(`replace-form-${imageFilename}`);
+                replaceForm.style.display = 'block';
+                this.style.display = 'none';
+            });
+        });
+        
+        cancelButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const imageFilename = this.getAttribute('data-image');
+                const replaceForm = document.getElementById(`replace-form-${imageFilename}`);
+                const toggleButton = replaceForm.parentNode.querySelector('.replace-image-toggle');
+                
+                replaceForm.style.display = 'none';
+                toggleButton.style.display = 'inline-block';
+            });
+        });
+        
+        // Add highlight class for drag and drop
+        const uploadArea = document.querySelector('.image-upload-area');
+        
+        if (uploadArea) {
+            uploadArea.addEventListener('dragenter', function() {
+                this.style.borderColor = 'var(--admin-secondary)';
+                this.style.backgroundColor = 'rgba(51, 230, 204, 0.05)';
+            });
+            
+            uploadArea.addEventListener('dragleave', function() {
+                this.style.borderColor = '';
+                this.style.backgroundColor = '';
+            });
+            
+            uploadArea.addEventListener('drop', function() {
+                this.style.borderColor = '';
+                this.style.backgroundColor = '';
+            });
+        }
+    });
+</script>
+{% endblock %}

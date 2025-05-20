@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Smokin' Breadsticks</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-dashboard">
+        <div class="admin-sidebar">
+            <div class="admin-sidebar-logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Smokin' Breadsticks">
+            </div>
+            <ul class="admin-nav">
+                <li class="admin-nav-item">
+                    <a href="{{ url_for('admin_dashboard') }}" class="admin-nav-link active">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                </li>
+                <li class="admin-nav-item">
+                    <a href="{{ url_for('admin_images') }}" class="admin-nav-link">
+                        <i class="fas fa-images"></i> Images
+                    </a>
+                </li>
+                <li class="admin-nav-item">
+                    <a href="{{ url_for('home') }}" class="admin-nav-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View Site
+                    </a>
+                </li>
+                <li class="admin-nav-item">
+                    <a href="{{ url_for('admin_logout') }}" class="admin-nav-link">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="admin-content">
+            <div class="admin-header">
+                <h1>Admin Dashboard</h1>
+                <div class="admin-user-menu">
+                    <button class="admin-user-btn">
+                        <span>{{ current_user }}</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="admin-user-dropdown">
+                        <a href="{{ url_for('admin_logout') }}">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+            <div class="admin-cards">
+                <div class="admin-card">
+                    <h2 class="admin-card-title">Total Images</h2>
+                    <div class="admin-card-value">{{ image_count }}</div>
+                    <p class="admin-card-description">Images managed through the admin panel</p>
+                </div>
+                <div class="admin-card">
+                    <h2 class="admin-card-title">Last Login</h2>
+                    <div class="admin-card-value">{{ last_login }}</div>
+                    <p class="admin-card-description">Your last successful login</p>
+                </div>
+            </div>
+            
+            <div class="admin-table-container">
+                <h2>Recent Activity</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Action</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for activity in recent_activity %}
+                        <tr>
+                            <td>{{ activity.date }}</td>
+                            <td>{{ activity.action }}</td>
+                            <td>{{ activity.details }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</body>
+</html>

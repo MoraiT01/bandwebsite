@@ -1,0 +1,773 @@
+{% extends 'base.html' %}
+
+{% block title %}Smokin' Breadsticks - Gallery{% endblock %}
+
+{% block content %}
+<div class="page-header" style="background-image: url('{{ url_for('static', filename='images/gallery-header.jpg') }}');">
+    <div class="container">
+        <h1>GALLERY</h1>
+    </div>
+</div>
+
+<section class="gallery-section">
+    <div class="container">
+        <h2 class="section-title">LIVE PERFORMANCES</h2>
+        <div class="gallery-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="regensburg">Regensburg</button>
+            <button class="filter-btn" data-filter="munich">Munich</button>
+            <button class="filter-btn" data-filter="berlin">Berlin</button>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-category="regensburg">
+                <div class="gallery-image">
+                    <img src="{{ url_for('static', filename='images/gallery1.jpg') }}" alt="Live at Don Bosco Regensburg">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Live at Don Bosco</h3>
+                            <p>Regensburg, February 2024</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="regensburg">
+                <div class="gallery-image">
+                    <img src="{{ url_for('static', filename='images/gallery2.jpg') }}" alt="Live at Don Bosco Regensburg">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Live at Don Bosco</h3>
+                            <p>Regensburg, February 2024</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="munich">
+                <div class="gallery-image">
+                    <img src="{{ url_for('static', filename='images/gallery3.jpg') }}" alt="Live at Backstage Munich">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Live at Backstage</h3>
+                            <p>Munich, October 2023</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="munich">
+                <div class="gallery-image">
+                    <img src="{{ url_for('static', filename='images/gallery4.jpg') }}" alt="Live at Backstage Munich">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Live at Backstage</h3>
+                            <p>Munich, October 2023</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="berlin">
+                <div class="gallery-image">
+                    <img src="{{ url_for('static', filename='images/gallery5.jpg') }}" alt="Live at SO36 Berlin">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Live at SO36</h3>
+                            <p>Berlin, September 2023</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="berlin">
+                <div class="gallery-image">
+                    <img src="{{ url_for('static', filename='images/gallery6.jpg') }}" alt="Live at SO36 Berlin">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Live at SO36</h3>
+                            <p>Berlin, September 2023</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="behind-scenes-section">
+    <div class="container">
+        <h2 class="section-title">BEHIND THE SCENES</h2>
+        <div class="behind-scenes-grid">
+            <div class="behind-scenes-item">
+                <div class="behind-scenes-image">
+                    <img src="{{ url_for('static', filename='images/behind1.jpg') }}" alt="Studio Session">
+                    <div class="behind-scenes-overlay">
+                        <div class="behind-scenes-info">
+                            <h3>Studio Session</h3>
+                            <p>Recording "Dough Rising" album</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="behind-scenes-item">
+                <div class="behind-scenes-image">
+                    <img src="{{ url_for('static', filename='images/behind2.jpg') }}" alt="Tour Bus">
+                    <div class="behind-scenes-overlay">
+                        <div class="behind-scenes-info">
+                            <h3>On the Road</h3>
+                            <p>Tour bus life, Summer 2023</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="behind-scenes-item">
+                <div class="behind-scenes-image">
+                    <img src="{{ url_for('static', filename='images/behind3.jpg') }}" alt="Rehearsal">
+                    <div class="behind-scenes-overlay">
+                        <div class="behind-scenes-info">
+                            <h3>Rehearsal Session</h3>
+                            <p>Preparing for Winter Tour 2024</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="behind-scenes-item">
+                <div class="behind-scenes-image">
+                    <img src="{{ url_for('static', filename='images/behind4.jpg') }}" alt="Backstage">
+                    <div class="behind-scenes-overlay">
+                        <div class="behind-scenes-info">
+                            <h3>Backstage Moments</h3>
+                            <p>Before the show, Munich 2023</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="fan-photos-section">
+    <div class="container">
+        <h2 class="section-title">FAN PHOTOS</h2>
+        <p class="section-description">Share your concert photos with us using #SmokinBreadsticks on social media!</p>
+        <div class="fan-photos-grid">
+            <div class="fan-photo-item">
+                <div class="fan-photo-image">
+                    <img src="{{ url_for('static', filename='images/fan1.jpg') }}" alt="Fan Photo">
+                    <div class="fan-photo-overlay">
+                        <div class="fan-photo-info">
+                            <p class="fan-name">@breadstick_fan1</p>
+                            <p class="fan-location">Regensburg, 2024</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="fan-photo-item">
+                <div class="fan-photo-image">
+                    <img src="{{ url_for('static', filename='images/fan2.jpg') }}" alt="Fan Photo">
+                    <div class="fan-photo-overlay">
+                        <div class="fan-photo-info">
+                            <p class="fan-name">@music_lover22</p>
+                            <p class="fan-location">Munich, 2023</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="fan-photo-item">
+                <div class="fan-photo-image">
+                    <img src="{{ url_for('static', filename='images/fan3.jpg') }}" alt="Fan Photo">
+                    <div class="fan-photo-overlay">
+                        <div class="fan-photo-info">
+                            <p class="fan-name">@concert_junkie</p>
+                            <p class="fan-location">Berlin, 2023</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="fan-photo-item">
+                <div class="fan-photo-image">
+                    <img src="{{ url_for('static', filename='images/fan4.jpg') }}" alt="Fan Photo">
+                    <div class="fan-photo-overlay">
+                        <div class="fan-photo-info">
+                            <p class="fan-name">@rock_photographer</p>
+                            <p class="fan-location">Hamburg, 2023</p>
+                            <a href="#" class="gallery-zoom"><i class="fas fa-search-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="submit-photos">
+            <h3>SUBMIT YOUR PHOTOS</h3>
+            <p>Want to see your photos here? Tag us on social media or email your photos to <a href="mailto:photos@smokinbreadsticks.com">photos@smokinbreadsticks.com</a></p>
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div class="lightbox-modal">
+    <div class="lightbox-content">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-image" src="" alt="Lightbox Image">
+        <div class="lightbox-caption"></div>
+        <a class="lightbox-prev">&#10094;</a>
+        <a class="lightbox-next">&#10095;</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Gallery page specific styles */
+    .page-header {
+        height: 50vh;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-top: 80px;
+    }
+    
+    .page-header:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8));
+    }
+    
+    .page-header h1 {
+        color: var(--primary-red);
+        font-size: 4rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        position: relative;
+        z-index: 1;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    
+    /* Gallery section */
+    .gallery-section {
+        padding: 4rem 0;
+        background-color: var(--dark-bg);
+    }
+    
+    .gallery-filter {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .filter-btn {
+        background-color: transparent;
+        border: 2px solid var(--primary-red);
+        color: var(--light-text);
+        padding: 0.5rem 1.5rem;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+    }
+    
+    .filter-btn:hover, .filter-btn.active {
+        background-color: var(--primary-red);
+    }
+    
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .gallery-item {
+        transition: transform 0.3s ease;
+    }
+    
+    .gallery-item:hover {
+        transform: translateY(-5px);
+    }
+    
+    .gallery-image {
+        position: relative;
+        overflow: hidden;
+        border-radius: 4px;
+        aspect-ratio: 4/3;
+    }
+    
+    .gallery-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    
+    .gallery-item:hover .gallery-image img {
+        transform: scale(1.05);
+    }
+    
+    .gallery-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+    }
+    
+    .gallery-info {
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .gallery-info h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.3rem;
+        color: var(--primary-red);
+    }
+    
+    .gallery-info p {
+        color: var(--light-text);
+        margin-bottom: 1rem;
+    }
+    
+    .gallery-zoom {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary-red);
+        color: var(--light-text);
+        border-radius: 50%;
+        line-height: 40px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .gallery-zoom:hover {
+        background-color: #ff0000;
+        color: var(--light-text);
+    }
+    
+    /* Behind the Scenes section */
+    .behind-scenes-section {
+        padding: 4rem 0;
+        background-color: var(--darker-bg);
+    }
+    
+    .behind-scenes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .behind-scenes-item {
+        transition: transform 0.3s ease;
+    }
+    
+    .behind-scenes-item:hover {
+        transform: translateY(-5px);
+    }
+    
+    .behind-scenes-image {
+        position: relative;
+        overflow: hidden;
+        border-radius: 4px;
+        aspect-ratio: 1/1;
+    }
+    
+    .behind-scenes-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    
+    .behind-scenes-item:hover .behind-scenes-image img {
+        transform: scale(1.05);
+    }
+    
+    .behind-scenes-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .behind-scenes-item:hover .behind-scenes-overlay {
+        opacity: 1;
+    }
+    
+    .behind-scenes-info {
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .behind-scenes-info h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.3rem;
+        color: var(--primary-red);
+    }
+    
+    .behind-scenes-info p {
+        color: var(--light-text);
+        margin-bottom: 1rem;
+    }
+    
+    /* Fan Photos section */
+    .fan-photos-section {
+        padding: 4rem 0;
+        background-color: var(--dark-bg);
+    }
+    
+    .section-description {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: var(--gray-text);
+    }
+    
+    .fan-photos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .fan-photo-item {
+        transition: transform 0.3s ease;
+    }
+    
+    .fan-photo-item:hover {
+        transform: translateY(-5px);
+    }
+    
+    .fan-photo-image {
+        position: relative;
+        overflow: hidden;
+        border-radius: 4px;
+        aspect-ratio: 1/1;
+    }
+    
+    .fan-photo-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    
+    .fan-photo-item:hover .fan-photo-image img {
+        transform: scale(1.05);
+    }
+    
+    .fan-photo-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .fan-photo-item:hover .fan-photo-overlay {
+        opacity: 1;
+    }
+    
+    .fan-photo-info {
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .fan-name {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+        color: var(--primary-teal);
+    }
+    
+    .fan-location {
+        color: var(--light-text);
+        margin-bottom: 1rem;
+    }
+    
+    .submit-photos {
+        text-align: center;
+        margin-top: 3rem;
+        padding: 2rem;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 4px;
+    }
+    
+    .submit-photos h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary-red);
+    }
+    
+    .submit-photos p {
+        color: var(--gray-text);
+    }
+    
+    .submit-photos a {
+        color: var(--primary-teal);
+        font-weight: bold;
+    }
+    
+    /* Lightbox Modal */
+    .lightbox-modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        padding-top: 50px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+    
+    .lightbox-content {
+        position: relative;
+        margin: auto;
+        padding: 0;
+        width: 80%;
+        max-width: 1000px;
+    }
+    
+    .lightbox-close {
+        color: white;
+        position: absolute;
+        top: 10px;
+        right: 25px;
+        font-size: 35px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    
+    .lightbox-image {
+        display: block;
+        width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+    }
+    
+    .lightbox-caption {
+        margin: auto;
+        width: 80%;
+        max-width: 700px;
+        text-align: center;
+        color: #ccc;
+        padding: 10px 0;
+        height: 150px;
+    }
+    
+    .lightbox-prev,
+    .lightbox-next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -50px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+    }
+    
+    .lightbox-next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+    
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+        background-color: rgba(255, 51, 51, 0.8);
+    }
+    
+    @media (max-width: 768px) {
+        .page-header h1 {
+            font-size: 3rem;
+        }
+        
+        .gallery-grid,
+        .behind-scenes-grid,
+        .fan-photos-grid {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+        
+        .lightbox-content {
+            width: 95%;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Gallery filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterBtns.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get filter value
+                const filterValue = this.getAttribute('data-filter');
+                
+                // Filter gallery items
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Lightbox functionality
+        const lightboxModal = document.querySelector('.lightbox-modal');
+        const lightboxImage = document.querySelector('.lightbox-image');
+        const lightboxCaption = document.querySelector('.lightbox-caption');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const lightboxPrev = document.querySelector('.lightbox-prev');
+        const lightboxNext = document.querySelector('.lightbox-next');
+        
+        // All gallery zoom buttons
+        const galleryZoomBtns = document.querySelectorAll('.gallery-zoom');
+        
+        // Array to store all gallery images
+        let galleryImages = [];
+        let currentImageIndex = 0;
+        
+        // Collect all gallery images
+        document.querySelectorAll('.gallery-image img, .behind-scenes-image img, .fan-photo-image img').forEach(img => {
+            galleryImages.push({
+                src: img.src,
+                caption: img.alt
+            });
+        });
+        
+        // Open lightbox
+        galleryZoomBtns.forEach((btn, index) => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Find the parent item
+                const parentItem = this.closest('.gallery-item') || 
+                                  this.closest('.behind-scenes-item') || 
+                                  this.closest('.fan-photo-item');
+                
+                // Find the image in the parent item
+                const img = parentItem.querySelector('img');
+                
+                // Find the index of this image in the galleryImages array
+                currentImageIndex = galleryImages.findIndex(item => item.src === img.src);
+                
+                // Set lightbox content
+                lightboxImage.src = img.src;
+                lightboxCaption.textContent = img.alt;
+                
+                // Show lightbox
+                lightboxModal.style.display = 'block';
+            });
+        });
+        
+        // Close lightbox
+        lightboxClose.addEventListener('click', function() {
+            lightboxModal.style.display = 'none';
+        });
+        
+        // Click outside to close
+        lightboxModal.addEventListener('click', function(e) {
+            if (e.target === lightboxModal) {
+                lightboxModal.style.display = 'none';
+            }
+        });
+        
+        // Previous image
+        lightboxPrev.addEventListener('click', function() {
+            currentImageIndex--;
+            if (currentImageIndex < 0) {
+                currentImageIndex = galleryImages.length - 1;
+            }
+            lightboxImage.src = galleryImages[currentImageIndex].src;
+            lightboxCaption.textContent = galleryImages[currentImageIndex].caption;
+        });
+        
+        // Next image
+        lightboxNext.addEventListener('click', function() {
+            currentImageIndex++;
+            if (currentImageIndex >= galleryImages.length) {
+                currentImageIndex = 0;
+            }
+            lightboxImage.src = galleryImages[currentImageIndex].src;
+            lightboxCaption.textContent = galleryImages[currentImageIndex].caption;
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (lightboxModal.style.display === 'block') {
+                if (e.key === 'ArrowLeft') {
+                    lightboxPrev.click();
+                } else if (e.key === 'ArrowRight') {
+                    lightboxNext.click();
+                } else if (e.key === 'Escape') {
+                    lightboxModal.style.display = 'none';
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}
