@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found | Smokin' Breadsticks</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="logo-container">
-            <a href="{{ url_for('home') }}">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Smokin' Breadsticks" class="logo">
+            <a href="index.html">
+                <img src="static/images/logo.png" alt="Smokin' Breadsticks" class="logo">
             </a>
         </div>
         <nav class="main-nav">
             <ul>
-                <li><a href="{{ url_for('home') }}">HOME</a></li>
-                <li><a href="{{ url_for('music') }}">MUSIC</a></li>
-                <li><a href="{{ url_for('tour') }}">TOUR</a></li>
-                <li><a href="{{ url_for('gallery') }}">GALLERY</a></li>
-                <li><a href="{{ url_for('videos') }}">VIDEOS</a></li>
-                <li><a href="{{ url_for('merch') }}">MERCH</a></li>
-                <li><a href="{{ url_for('about') }}">ABOUT</a></li>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="music.html">MUSIC</a></li>
+                <li><a href="tour.html">TOUR</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li><a href="videos.html">VIDEOS</a></li>
+                <li><a href="merch.html">MERCH</a></li>
+                <li><a href="about.html">ABOUT</a></li>
             </ul>
         </nav>
         <div class="mobile-menu-toggle">
@@ -37,7 +37,7 @@
                     <h1>404</h1>
                     <h2>PAGE NOT FOUND</h2>
                     <p>The page you're looking for doesn't exist or has been moved.</p>
-                    <a href="{{ url_for('home') }}" class="btn">BACK TO HOME</a>
+                    <a href="index.html" class="btn">BACK TO HOME</a>
                 </div>
             </div>
         </section>
@@ -46,7 +46,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Smokin' Breadsticks" class="footer-logo-img">
+                <img src="static/images/logo.png" alt="Smokin' Breadsticks" class="footer-logo-img">
             </div>
             <div class="social-links">
                 <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -58,19 +58,18 @@
             </div>
             <div class="footer-nav">
                 <ul>
-                    <li><a href="{{ url_for('home') }}">Home</a></li>
-                    <li><a href="{{ url_for('music') }}">Music</a></li>
-                    <li><a href="{{ url_for('tour') }}">Tour</a></li>
-                    <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
-                    <li><a href="{{ url_for('videos') }}">Videos</a></li>
-                    <li><a href="{{ url_for('merch') }}">Merch</a></li>
-                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="music.html">Music</a></li>
+                    <li><a href="tour.html">Tour</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="videos.html">Videos</a></li>
+                    <li><a href="merch.html">Merch</a></li>
+                    <li><a href="about.html">About</a></li>
                 </ul>
             </div>
             <div class="newsletter">
                 <h3>JOIN THE MAILING LIST</h3>
-                <form action="#" method="post">
-                    <input type="email" name="email" placeholder="Your email address">
+                <form action="#" method="post"> <input type="email" name="email" placeholder="Your email address">
                     <button type="submit">SUBSCRIBE</button>
                 </form>
             </div>
@@ -80,18 +79,18 @@
         </div>
     </footer>
 
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/form_handlers.js') }}"></script>
+    <script src="static/js/main.js"></script>
+    <script src="static/js/form_handlers.js"></script>
 
     <style>
         .error-section {
-            min-height: calc(100vh - 300px);
+            min-height: calc(100vh - 300px); /* Adjusted to roughly account for header/footer */
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 4rem 0;
             background-color: var(--dark-bg);
-            margin-top: 80px;
+            margin-top: 80px; /* Assuming header height */
         }
         
         .error-content {

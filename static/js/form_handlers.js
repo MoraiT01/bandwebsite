@@ -1,11 +1,11 @@
 // Form handlers for Smokin' Breadsticks website
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Contact form handler
+    // Contact form handler (e.g., on about.html)
     const contactForm = document.querySelector('.contact-form form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+            e.preventDefault(); // Prevent default form submission
             
             // Get form data
             const formData = new FormData(this);
@@ -14,69 +14,84 @@ document.addEventListener('DOMContentLoaded', function() {
                 formDataObj[key] = value;
             });
             
-            // In a real application, this would send data to the server
-            // For now, we'll simulate a successful submission
-            console.log('Contact form submitted:', formDataObj);
+            // In a static site context, this data isn't sent to a server
+            // unless you integrate a third-party service (e.g., Formspree).
+            // This simulates a successful submission for demo purposes.
+            console.log('Contact form submitted (client-side):', formDataObj);
             
             // Show success message
-            alert('Thank you for your message! We will get back to you soon.');
+            alert('Thank you for your message! We will get back to you soon. (Demo - no data sent)');
             
             // Reset form
             this.reset();
         });
     }
     
-    // Newsletter form handler
-    const newsletterForm = document.querySelector('.newsletter form');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get email
-            const email = this.querySelector('input[type="email"]').value;
-            
-            // Validate email
-            if (!validateEmail(email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-            
-            // In a real application, this would send data to the server
-            // For now, we'll simulate a successful subscription
-            console.log('Newsletter subscription:', email);
-            
-            // Show success message
-            alert('Thank you for subscribing to our newsletter!');
-            
-            // Reset form
-            this.reset();
+    // Newsletter form handler (e.g., in footer)
+    // Note: main.js also has a newsletter handler. Ensure only one is active
+    // or that they don't conflict if both scripts are loaded.
+    // This version includes email validation.
+    const newsletterForms = document.querySelectorAll('.newsletter form'); // Targets all newsletter forms
+    if (newsletterForms.length > 0) {
+        newsletterForms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault(); // Prevent default form submission
+                
+                // Get email
+                const emailInput = this.querySelector('input[type="email"]');
+                if (!emailInput) return;
+                const email = emailInput.value;
+                
+                // Validate email
+                if (!validateEmail(email)) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+                
+                // In a static site context, this data isn't sent to a server
+                // unless you integrate a third-party service.
+                // This simulates a successful subscription for demo purposes.
+                console.log('Newsletter subscription (client-side):', email);
+                
+                // Show success message
+                alert('Thank you for subscribing to our newsletter! (Demo - no data sent)');
+                
+                // Reset form
+                this.reset();
+            });
         });
     }
     
     // Merch page - Add to cart functionality
+    // This logic is also present inline in the converted merch.html.
+    // For a final static site, it's best to have this code in one place,
+    // preferably here, and remove the duplicate inline script from merch.html.
     const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
     if (addToCartButtons.length > 0) {
         addToCartButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const productItem = this.closest('.product-item');
-                const productTitle = productItem.querySelector('h3').textContent;
-                const productPrice = productItem.querySelector('.product-price').textContent;
-                const productImage = productItem.querySelector('.product-image img').src;
+                if (!productItem) return;
+
+                const productTitleEl = productItem.querySelector('h3');
+                const productPriceEl = productItem.querySelector('.product-price');
+                const productImageEl = productItem.querySelector('.product-image img');
+
+                const productTitle = productTitleEl ? productTitleEl.textContent : 'Unknown Product';
+                const productPrice = productPriceEl ? productPriceEl.textContent : '$0.00';
+                const productImage = productImageEl ? productImageEl.src : 'static/images/merch_placeholder.jpg'; // Fallback image
                 
-                // Get selected size if available
                 let selectedSize = '';
-                const sizeButtons = productItem.querySelectorAll('.size-btn');
-                if (sizeButtons.length > 0) {
-                    const activeSize = productItem.querySelector('.size-btn.active');
-                    selectedSize = activeSize ? activeSize.textContent : 'M'; // Default to M if none selected
+                const sizeOptionsContainer = productItem.querySelector('.size-options');
+                if (sizeOptionsContainer) {
+                    const activeSizeButton = sizeOptionsContainer.querySelector('.size-btn.active');
+                    selectedSize = activeSizeButton ? activeSizeButton.textContent : ''; // Default to no size if not applicable or selected
                 }
                 
-                // Get quantity
                 const quantityInput = productItem.querySelector('.quantity-input');
                 const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
                 
-                // Create cart item object
-                const cartItem = {
+                const cartItemData = { // Renamed to avoid conflict if cartItem var is used elsewhere
                     title: productTitle,
                     price: productPrice,
                     image: productImage,
@@ -84,14 +99,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     quantity: quantity
                 };
                 
-                // In a real application, this would add the item to the cart in a database or session
-                console.log('Added to cart:', cartItem);
+                // This is client-side only. It doesn't process an actual order.
+                console.log('Added to cart (client-side demo):', cartItemData);
                 
-                // Update cart UI
-                updateCartUI(cartItem);
+                updateCartUI(cartItemData); // This function updates the cart display on the page
                 
-                // Show success message
-                alert(`Added ${quantity} x ${productTitle} to your cart!`);
+                alert(`Added ${quantity} x ${productTitle} to your cart! (Demo)`);
             });
         });
     }
@@ -102,83 +115,97 @@ document.addEventListener('DOMContentLoaded', function() {
         return re.test(String(email).toLowerCase());
     }
     
-    // Helper function to update cart UI
-    function updateCartUI(cartItem) {
+    // Helper function to update cart UI on merch.html
+    function updateCartUI(cartItemData) {
         const cartEmpty = document.querySelector('.cart-empty');
-        const cartItems = document.querySelector('.cart-items');
+        const cartItemsContainer = document.querySelector('.cart-items'); // Changed var name
         const cartSummary = document.querySelector('.cart-summary');
         
-        if (cartEmpty && cartItems && cartSummary) {
-            // Hide empty cart message
+        if (cartEmpty && cartItemsContainer && cartSummary) {
             cartEmpty.style.display = 'none';
-            
-            // Show cart items and summary
-            cartItems.style.display = 'block';
+            cartItemsContainer.style.display = 'block';
             cartSummary.style.display = 'block';
             
-            // Create cart item element
             const cartItemElement = document.createElement('div');
             cartItemElement.className = 'cart-item';
+            let detailsText = `Qty: ${cartItemData.quantity}`;
+            if (cartItemData.size) {
+                detailsText += ` | Size: ${cartItemData.size}`;
+            }
+
             cartItemElement.innerHTML = `
                 <div class="cart-item-image">
-                    <img src="${cartItem.image}" alt="${cartItem.title}">
+                    <img src="${cartItemData.image}" alt="${cartItemData.title}">
                 </div>
                 <div class="cart-item-info">
-                    <h4 class="cart-item-title">${cartItem.title}</h4>
-                    <p class="cart-item-details">Qty: ${cartItem.quantity}${cartItem.size ? ' | Size: ' + cartItem.size : ''}</p>
+                    <h4 class="cart-item-title">${cartItemData.title}</h4>
+                    <p class="cart-item-details">${detailsText}</p>
                 </div>
-                <div class="cart-item-price">${cartItem.price}</div>
+                <div class="cart-item-price">${cartItemData.price}</div>
                 <button class="cart-item-remove"><i class="fas fa-times"></i></button>
             `;
             
-            // Add to cart items
-            cartItems.appendChild(cartItemElement);
+            cartItemsContainer.appendChild(cartItemElement);
             
-            // Add remove functionality
             const removeBtn = cartItemElement.querySelector('.cart-item-remove');
             removeBtn.addEventListener('click', function() {
                 cartItemElement.remove();
-                
-                // If no items left, show empty cart message
-                if (cartItems.children.length === 0) {
+                updateCartSummary(); // Recalculate summary when an item is removed
+                if (cartItemsContainer.children.length === 0) {
                     cartEmpty.style.display = 'block';
-                    cartItems.style.display = 'none';
+                    cartItemsContainer.style.display = 'none';
                     cartSummary.style.display = 'none';
                 }
-                
-                // Update cart summary
-                updateCartSummary();
             });
             
-            // Update cart summary
-            updateCartSummary();
+            updateCartSummary(); // Recalculate summary when a new item is added
         }
     }
     
-    // Helper function to update cart summary
+    // Helper function to update cart summary totals on merch.html
     function updateCartSummary() {
-        const cartItems = document.querySelector('.cart-items');
+        const cartItemsContainer = document.querySelector('.cart-items');
         const subtotalElement = document.querySelector('.cart-subtotal');
         const shippingElement = document.querySelector('.cart-shipping');
         const totalElement = document.querySelector('.cart-total');
         
-        if (cartItems && subtotalElement && shippingElement && totalElement) {
-            // Count items
-            const itemCount = cartItems.children.length;
+        if (cartItemsContainer && subtotalElement && shippingElement && totalElement) {
+            let subtotal = 0;
+            const items = cartItemsContainer.querySelectorAll('.cart-item');
             
-            // Calculate subtotal (in a real app, this would use actual prices)
-            const subtotal = itemCount * 25; // Simplified calculation
+            items.forEach(item => {
+                const priceString = item.querySelector('.cart-item-price')?.textContent || '$0';
+                const quantityString = item.querySelector('.cart-item-details')?.textContent.match(/Qty: (\d+)/);
+                
+                const price = parseFloat(priceString.replace('$', ''));
+                const quantity = quantityString ? parseInt(quantityString[1]) : 1;
+                
+                if (!isNaN(price) && !isNaN(quantity)) {
+                    subtotal += price * quantity; // Assuming price is per item, not total for quantity already
+                }
+            });
             
-            // Calculate shipping (free over $50)
-            const shipping = subtotal > 50 ? 0 : 5;
-            
-            // Calculate total
+            const shipping = subtotal > 50 ? 0 : 5; // Example shipping logic
             const total = subtotal + shipping;
             
-            // Update elements
             subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
             shippingElement.textContent = shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)}`;
             totalElement.textContent = `$${total.toFixed(2)}`;
+
+            // If cart is empty after updates, reflect this
+            if (items.length === 0) {
+                const cartEmpty = document.querySelector('.cart-empty');
+                const cartSummaryDiv = document.querySelector('.cart-summary'); // Check actual class name
+                if (cartEmpty) cartEmpty.style.display = 'block';
+                if (cartItemsContainer) cartItemsContainer.style.display = 'none';
+                if (cartSummaryDiv) cartSummaryDiv.style.display = 'none';
+            }
         }
+    }
+
+    // Initial cart summary update in case the cart is pre-populated (e.g. from localStorage - not implemented here)
+    // or to ensure correct state if no items are added.
+    if (document.querySelector('.shopping-cart')) { // Only run on pages with a shopping cart
+        updateCartSummary();
     }
 });
