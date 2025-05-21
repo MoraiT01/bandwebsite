@@ -70,5 +70,5 @@ This repository primarily serves the static website. If you have suggestions or 
 
 ---
 
-Thanks to Anderson for the initial website version and inspiration!
+Thanks to Anderson de Lima Luiz for the initial website version and inspiration!
 Our goal is to keep rocking online!
